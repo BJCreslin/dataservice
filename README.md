@@ -7,7 +7,7 @@ REST Микрсосервис хранения данных в базе данн
 Технологии- springboot, JPA, WEb, TomCat  Lombok.
 
 DTO- https://github.com/BJCreslin/dataservice/blob/master/src/main/java/ru/bjcreslin/dataservice/dto/ItemDTO.java
-    private String code; -Код товара на сайте магазина
+    private String code; -Код товара на сайте магазина <br>
     private String sku;  -артикль производителя. Может быть пустым (null).
     private String name;  - название у продавца
     private String shopName;  - название продавца
