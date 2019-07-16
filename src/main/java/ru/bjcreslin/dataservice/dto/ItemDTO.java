@@ -3,6 +3,7 @@ package ru.bjcreslin.dataservice.dto;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -10,7 +11,7 @@ import java.util.Set;
 public class ItemDTO {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "id")
     private long id;
@@ -18,7 +19,7 @@ public class ItemDTO {
     @Column(name = "code")
     private String code; //Код товара на сайте магазина
 
-    @Column(name = "sku") //артикль производителя
+    @Column(name = "sku", nullable = true) //артикль производителя
     private String sku;
 
     @Column(name = "name") // название у продавца
@@ -49,7 +50,10 @@ public class ItemDTO {
     private String imgAddress;
 
     @Column(name = "related_data") //список связанных значений
-    private Set<ItemDTO> relatedData;
+    private Set<Long> relatedData;
+
+    @Column(name = "date") //дата последнего изменения
+    private LocalDateTime date;
 
     @Column(name = "comment") //Коментарий
     private String Comment;
