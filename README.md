@@ -38,3 +38,7 @@ DTO- https://github.com/BJCreslin/dataservice/blob/master/src/main/java/ru/bjcre
     private LocalDateTime date;  -дата последнего обновления данных
     
     private String Comment; -Коментарий. Без коментариев .
+    
+    @Column(name = "inner_comment") //Внутренний коммент
+    private String innerComment;   - Внутренний коментарий. не будет показываться пользователям.
+  
