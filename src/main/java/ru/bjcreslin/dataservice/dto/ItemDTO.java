@@ -1,13 +1,24 @@
 package ru.bjcreslin.dataservice.dto;
 
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+/**
+ * @version 1
+ * Сущность работы с БД
+ */
 @Entity
 @Table(name = "items")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@ToString(callSuper = true, exclude = "innerComment")
 public class ItemDTO {
 
     @Id
@@ -19,7 +30,7 @@ public class ItemDTO {
     @Column(name = "code")
     private String code; //Код товара на сайте магазина
 
-    @Column(name = "sku", nullable = true) //артикль производителя
+    @Column(name = "sku") //артикль производителя
     private String sku;
 
     @Column(name = "name") // название у продавца
@@ -56,6 +67,9 @@ public class ItemDTO {
     private LocalDateTime date;
 
     @Column(name = "comment") //Коментарий
-    private String Comment;
+    private String comment;
+
+    @Column(name = "inner_comment") //Внутренний коммент
+    private String innerComment;
 
 }
