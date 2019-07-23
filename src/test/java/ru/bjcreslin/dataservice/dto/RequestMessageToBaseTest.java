@@ -2,6 +2,7 @@ package ru.bjcreslin.dataservice.dto;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.bjcreslin.dataservice.exceptions.ErrorVersionAPI;
 
@@ -42,9 +43,9 @@ class RequestMessageToBaseTest {
     }
 
     @Test
+    @DisplayName("Test assert wrong version API")
     void inCorrectCreate() throws ErrorVersionAPI {
         version = 3;
-
         Assertions.assertThrows(ErrorVersionAPI.class, () -> {
             new RequestMessageToBase(version, function, id, text, author);
         });
