@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 /**
  * @version 1
@@ -60,8 +59,8 @@ public class ItemDTO {
     @Column(name = "img_address") //адрес картинки в файловом пространстве или html
     private String imgAddress;
 
-    @Column(name = "related_data") //список связанных значений
-    private Set<Long> relatedData;
+//    @Column(name = "related_data") //список связанных значений
+//    private List<Long> relatedData;
 
     @Column(name = "date") //дата последнего изменения
     private LocalDateTime date;

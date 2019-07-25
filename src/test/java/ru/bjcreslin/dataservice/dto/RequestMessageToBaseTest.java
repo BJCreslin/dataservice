@@ -18,7 +18,7 @@ class RequestMessageToBaseTest {
     /*   автор запроса   */
     private String author;
 
-    private RequestMessageToBase requestMessageToBase;
+    private RequestMessage requestMessage;
 
     @BeforeEach
     public void dataAssignment() {
@@ -33,12 +33,12 @@ class RequestMessageToBaseTest {
     void correctCreate() {
 
         try {
-            requestMessageToBase = new RequestMessageToBase(version, function, id, text, author);
+            requestMessage = new RequestMessage(version, function, id, text, author);
 
         } catch (ErrorVersionAPI errorVersionAPI) {
             errorVersionAPI.printStackTrace();
         }
-        Assertions.assertEquals(requestMessageToBase.getAuthor(), author);
+        Assertions.assertEquals(requestMessage.getAuthor(), author);
 
     }
 
@@ -47,7 +47,7 @@ class RequestMessageToBaseTest {
     void inCorrectCreate() throws ErrorVersionAPI {
         version = 3;
         Assertions.assertThrows(ErrorVersionAPI.class, () -> {
-            new RequestMessageToBase(version, function, id, text, author);
+            new RequestMessage(version, function, id, text, author);
         });
     }
 }
